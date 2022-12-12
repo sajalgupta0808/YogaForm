@@ -3,12 +3,27 @@ import { Link } from 'react-router-dom'
 import './style.css'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Toast from 'react-bootstrap/Toast';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+
+
 
 export default function Dashboard() {
     const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
+    //const [showModal,setShowModal] = useState(false);
+    const handleClose = () => {
+        setShow(false);
+    }
     const handleShow = () => setShow(true);
+
+
+    const [Toastshow, setToastShow] = useState(false);
+    const toastClose = () => setToastShow(false);
+    const toastShow = () => setToastShow(true);
+
+
     return ( <
         >
         <
@@ -21,7 +36,7 @@ export default function Dashboard() {
         <
         label className = "form_label"
         for = "name" > Name < /label> <
-        input type = "text"
+        p type = "text"
         class = "form-control"
         id = "name"
         name = "name"
@@ -35,7 +50,7 @@ export default function Dashboard() {
         <
         label className = "form_label"
         for = "email" > Email < /label> <
-        input type = "email"
+        p type = "email"
         class = "form-control"
         id = "email"
         name = "email"
@@ -49,7 +64,7 @@ export default function Dashboard() {
         <
         label className = "form_label"
         for = "age" > Age < /label> <
-        input type = "number"
+        p type = "number"
         class = "form-control"
         onchange = "validateAge(this.value)"
         id = "age"
@@ -64,7 +79,7 @@ export default function Dashboard() {
         <
         label className = "form_label"
         for = "doj" > Date of Joining < /label> <
-        input type = "date"
+        p type = "date"
         class = "form-control"
         id = "doj"
         name = "doj"
@@ -78,28 +93,24 @@ export default function Dashboard() {
         <
         label className = "form_label"
         for = "batch" > Batch < /label> <
-        select name = "batch"
+        p type = "batch"
         class = "form-control"
-        id = "batch" >
+        id = "currentbatch"
+        name = "currentbatch" / >
         <
-        option value = "default"
-        selected disabled > Select Your Batch Timing < /option> <
-        option value = "first" > 6 - 7 AM < /option> <
-        option value = "second" > 7 - 8 AM < /option> <
-        option value = "third" > 8 - 9 AM < /option> <
-        option value = "fourth" > 5 - 6 PM < /option> <
-        /select> <
         /div>
-
-
-
 
         <
         div class = "footer" >
         <
         Button variant = "primary"
-        onClick = { handleShow } > Change Batch Timing < /Button> <
-        Button variant = "danger" > < Link to = "/" > Logout < /Link></Button >
+        onClick = { handleShow } > Pay Now < /Button> <
+        Button variant = "danger"
+        style = {
+            { color: "white" } } > < Link to = "/"
+        className = 'logoutbtn'
+        style = {
+            { color: "white" } } > Logout < /Link></Button >
         <
         /div> <
         /div> <
@@ -115,7 +126,7 @@ export default function Dashboard() {
         <
         Modal.Header closeButton >
         <
-        Modal.Title > Cahnge Batch Timing < /Modal.Title> <
+        Modal.Title > Select Your Batch Timing < /Modal.Title> <
         /Modal.Header> <
         Modal.Body >
         <
@@ -141,11 +152,41 @@ export default function Dashboard() {
         Close <
         /Button> <
         Button variant = "primary"
-        onClick = { handleClose } >
-        Save Changes <
+        onClick = {
+            () => {
+                handleClose()
+                toastShow()
+            }
+        } >
+        Pay Now <
         /Button> <
         /Modal.Footer> <
         /Modal>
+
+
+        <
+        Row >
+        <
+        Col xs = { 6 } >
+        <
+        Toast onClose = { toastClose }
+        show = { Toastshow }
+        delay = { 2000 }
+        autohide >
+        <
+        Toast.Header className = "rounded me-2"
+        alt = "" / >
+        <
+        Toast.Body > Woohoo, you 're reading this text in a Toast!</Toast.Body> <
+        /Toast> <
+        /Col> <
+        /Row>
+
+
+
+
+
+
 
         <
         />

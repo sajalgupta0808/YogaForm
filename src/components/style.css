@@ -21,8 +21,13 @@ body {
     padding: 5px 5px;
 }
 
+.form-group {
+    margin: 5px;
+}
+
 .form-body>* {
-    padding: 1px;
+    padding: 0px;
+    margin: 10px;
 }
 
 .form__label {
@@ -36,4 +41,12 @@ body {
 .footer {
     text-align: center;
     background-color: white;
+}
+
+.logoutbtn:hover {
+    text-decoration: none;
+}
+
+.signin {
+    margin-right: 5px;
 }

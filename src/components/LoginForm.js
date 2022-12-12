@@ -44,7 +44,7 @@ export default function LoginForm() {
         div class = "footer" >
         <
         button type = "login"
-        class = "btn"
+        class = "btn signin"
         color = 'blue' > < Link to = "/Dashboard" > SignIn < /Link></button >
         <
         button type = "register"
