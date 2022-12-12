@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button';
 
 
 export default function LoginForm() {
@@ -10,7 +11,8 @@ export default function LoginForm() {
         <
         div className = "form-body" >
         <
-        div > < b > < center > Login Form < /center></b > < /div> <
+        div > < b > < center > < h4 > Login Form < /h4></center > < /b></div >
+        <
         div class = "form-group" >
         <
         label className = "form_label"
@@ -43,13 +45,18 @@ export default function LoginForm() {
         /div> <
         div class = "footer" >
         <
-        button type = "login"
-        class = "btn signin"
-        color = 'blue' > < Link to = "/Dashboard" > SignIn < /Link></button >
+        Button variant = "primary"
+        className = 'signinbtn' > < Link to = "/Dashboard"
+        className = 'signinbtn'
+        style = {
+            { color: "white" } } > Sign In < /Link></Button >
         <
-        button type = "register"
-        class = "btn"
-        color = 'red' > < Link to = "/RegistrationForm" > SignUp < /Link></button >
+        Button variant = "danger"
+        className = 'signinbtn' > < Link to = "/RegistrationForm"
+        className = 'signinbtn'
+        style = {
+            { color: "white" } } > Sign Up < /Link></Button >
+
         <
         /div> <
         /div> <

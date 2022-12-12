@@ -31,7 +31,8 @@ export default function Dashboard() {
         <
         div className = "form-body" >
         <
-        div > < b > < center > Dashboard < /center></b > < /div> <
+        div > < b > < center > < h4 > Dashboard < /h4></center > < /b></div >
+        <
         div class = "form-group" >
         <
         label className = "form_label"
@@ -92,7 +93,7 @@ export default function Dashboard() {
         div class = "form-group" >
         <
         label className = "form_label"
-        for = "batch" > Batch < /label> <
+        for = "batch" > Current Batch < /label> <
         p type = "batch"
         class = "form-control"
         id = "currentbatch"
@@ -131,6 +132,7 @@ export default function Dashboard() {
         Modal.Body >
         <
         div class = "form-group" >
+
         <
         select name = "batch"
         class = "form-control"
@@ -143,6 +145,9 @@ export default function Dashboard() {
         option value = "third" > 8 - 9 AM < /option> <
         option value = "fourth" > 5 - 6 PM < /option> <
         /select> <
+        p > NOTE: Fees
+        for the yoga classes is₹ 500 per month(You can enroll any day but you have to pay
+            for the entire month) < /p> <
         /div> <
         /Modal.Body> <
         Modal.Footer >
@@ -177,7 +182,7 @@ export default function Dashboard() {
         Toast.Header className = "rounded me-2"
         alt = "" / >
         <
-        Toast.Body > Woohoo, you 're reading this text in a Toast!</Toast.Body> <
+        Toast.Body > Congratulations!You have enrolled successfully. < /Toast.Body> <
         /Toast> <
         /Col> <
         /Row>

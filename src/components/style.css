@@ -47,6 +47,10 @@ body {
     text-decoration: none;
 }
 
-.signin {
-    margin-right: 5px;
+.signinbtn {
+    margin: 2px;
+}
+
+.signinbtn:hover {
+    text-decoration: none;
 }

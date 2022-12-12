@@ -1,10 +1,20 @@
 import React from 'react'
 import './style.css'
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import { useState } from "react";
+import Toast from 'react-bootstrap/Toast';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 
 
 export default function RegistrationForm() {
+
+    const [Toastshow, setToastShow] = useState(false);
+    const toastClose = () => setToastShow(false);
+    const toastShow = () => setToastShow(true);
+
     return ( <
         >
         <
@@ -12,7 +22,8 @@ export default function RegistrationForm() {
         <
         div className = "form-body" >
         <
-        div > < b > < center > Registration Form < /center></b > < /div> <
+        div > < b > < center > < h4 > Registration Form < /h4></center > < /b></div >
+        <
         div class = "form-group" >
         <
         label className = "form_label"
@@ -104,17 +115,44 @@ export default function RegistrationForm() {
         <
         div class = "footer" >
         <
-        button type = "submit"
-        class = "btn"
-        color = 'red' > < Link to = "/" > Register < /Link></button >
+        Button variant = "primary"
+        className = 'signinbtn' > < Link to = "/"
+        className = 'signinbtn'
+        style = {
+            { color: "white" } } > Register < /Link></Button >
         <
-        button type = "login"
-        class = "btn"
-        color = 'blue' > < Link to = "/" > SignIn < /Link></button >
+        Button variant = "danger"
+        className = 'signinbtn'
+        onClick = { toastShow } > < Link to = "/"
+        className = 'signinbtn'
+        style = {
+            { color: "white" } } > Sign In < /Link></Button >
+
         <
         /div> <
         /div>       <
-        /div> <
+        /div>
+
+        <
+        Row >
+        <
+        Col xs = { 6 } >
+        <
+        Toast onClose = { toastClose }
+        show = { Toastshow }
+        delay = { 2000 }
+        autohide >
+        <
+        Toast.Header className = "rounded me-2"
+        alt = "" / >
+        <
+        Toast.Body > You have registered successfully.Login to
+        continue. < /Toast.Body> <
+        /Toast> <
+        /Col> <
+        /Row>
+
+        <
         />
     )
 }
