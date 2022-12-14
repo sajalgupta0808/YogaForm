@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { json, Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import ls from 'local-storage'
 import {useState } from "react";
@@ -42,18 +42,28 @@ export default function LoginForm() {
       // 
 
         const data = new Response(JSON.stringify(resp));
+        console.log(resp);
   
-        // if ('caches' in window) {
-        //   // Opening given cache and putting our data into it
-        //   caches.open('MyCache').then((cache) => {
-        //     cache.put('https://yogaformbackend-production.up.railway.app/api/register', data);
-        //     alert('Data Added into cache!')
-        //   });
-        // }
+        if ('caches' in window) {
+          // Opening given cache and putting our data into it
+          caches.open('MyCache').then((cache) => {
+            cache.put('https://yogaformbackend-production.up.railway.app/api/register', data);
+            // alert('Data Added into cache!')
+          });
+        }
 
         //
 
-        ls.set('dataKey', data);
+        await localStorage.setItem("name",resp.data.name);
+        await localStorage.setItem("id",resp.data.id.toString());
+        await localStorage.setItem("age",resp.data.age);
+        await localStorage.setItem("email",resp.data.email);
+        await localStorage.setItem("batch",resp.data.batch);
+        await localStorage.setItem("joiningDate",resp.data.joiningDate);
+        await localStorage.setItem("lastPaidMonth",resp.data.lastPaidMonth.toString());
+        
+
+
         if(resp.status===200){
         navigate("/Dashboard");
         }
